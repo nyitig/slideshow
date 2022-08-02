@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SlideShow">
+  <meta name="keywords" content="Slideshow">
+  <meta name="generator" content="Visual Studio Code">
+  <meta name="robots" content="index,follow">
+  <meta name="distribution" content="global">
+  <meta name="author" content="NyitiG">
+  <link rel="stylesheet" href="style.css">
+  <title>Slide Show by NyitiG</title>
+</head>
+<body>
+  <section id="fullPageSec">
+    <div id="fullPageDivCont" class="displayFlexColumn alignCent justíFlexEnd">
+      <section id="viewPicSec" class="displayFlexColumn">
+        <div id="viewPicDivCont" class="displayFlexRow zIndex100">
+          <div id="leftArrowDivCont" class="displayFlexColumn justyCent">
+            <div id="leftArrowDivBox" class="displayFlexColumn justyCent">
+              <div id="leftArrow" class=""></div>
+            </div>
+          </div>
+          <div id="centerDivCont" class="displayFlexRow justyCent">
+            <img id="centerImg" class="centerImg active" src="assets/pic/001.jpg" alt="">
+            <div id="changeImgDivCont" class="positionAbsol">
+              <img id="enlargementImg" class=" svgPic" src="assets/pic/add-circle-outline.svg" alt="">
+              <img id="reductionImg" class=" svgPic" src="assets/pic/remove-circle-outline.svg" alt="">  
+            </div>
+          </div>
+          <div id="rightArrowDivCont" class="displayFlexColumn justyCent">
+            <div id="rightArrowDivBox" class="displayFlexColumn justyCent">
+              <div id="rightArrow" class=""></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="slideBarSec">
+        <div id="slideBarCont" class="displayFlexRow">
+        </div>
+      </section>
+    </div>
+
+  </section>
+ 
+  <script src="app.js"></script> 
+</body>
+</html>

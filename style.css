@@ -1,0 +1,157 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+:root {
+  --backgroundColorArrowCont: rgb(227, 227, 227, 0.5);
+  --backgroundcolorArrowBox: rgb(227, 227, 227, 0.8);
+  --backgroundColor: rgb(0, 0, 0, 0.9);
+  --borderColor: rgb(36, 36, 36);
+  --borderColorActive: rgb(0, 0, 0);
+  --boxShadow: 0px 15px 50px rgb(0,0,0,0.9)
+}
+body {
+  min-height: 100vh;
+  background: hsla(0, 0%, 83%, 1);
+  background: radial-gradient(circle, hsla(0, 0%, 83%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+  background: -moz-radial-gradient(circle, hsla(0, 0%, 83%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+  background: -webkit-radial-gradient(circle, hsla(0, 0%, 83%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#D3D3D3", endColorstr="#FFFFFF", GradientType=1 );
+}
+/* Full page style */
+.displayFlexColumn {
+  display: flex;
+  flex-direction: column;
+}
+.displayFlexRow {
+  display: flex;
+  flex-direction: row;
+}
+.justyCent {
+  justify-content: center;
+}
+.justíFlexEnd {
+  justify-content: flex-end;
+}
+.alignCent {
+  align-items: center;
+}
+#fullPageDivCont {
+  width: 100%;
+  min-height: 100vh;
+}
+/* viewPicCont style */
+#centerImg {
+  /* width: 27rem; */
+  height: 68vh;
+  opacity: 0;
+  transition: 0.5s linear;
+}
+#centerImg.active {
+  opacity: 1;
+}
+.positionAbsol {
+  position: absolute;
+  right: 11rem;
+}
+@media screen and (min-width:992px) {
+  .positionAbsol {
+    position: absolute;
+    right: 15rem;
+  }
+}
+#viewPicDivCont {
+  min-height: 65vh;
+  max-height: 68vh;
+  width: 80vw;
+  box-shadow: var(--boxShadow);
+  background-color: var(--backgroundColor);
+  /* background-image: url(assets/pic/001.jpg);
+  background-size: 27rem 10rem;
+  background-repeat: no-repeat; */
+  margin-top: 2vh;
+  border-radius: 6px;
+}
+#leftArrowDivCont, #rightArrowDivCont {
+  padding: 0 2vw;
+  border-radius: 6px;
+   background-color: var(--backgroundColorArrowCont); 
+ 
+}
+#leftArrowDivBox, #rightArrowDivBox {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--backgroundColorArrowCont);
+  transition: 0.3s linear; 
+  cursor: pointer;
+ }
+ #leftArrowDivBox:hover, #leftArrowDivBox.active, #rightArrowDivBox:hover, #rightArrowDivBox.active  {
+  background-color: var(--backgroundcolorArrowBox);
+  
+ }
+#leftArrow {
+  margin: 0 auto;
+  width: 10px;
+  height: 10px;
+  border-bottom: 3px solid var(--borderColor);
+  border-left: 3px solid var(--borderColor);
+  transform: rotate(45deg);
+  transition: 0.3s linear;
+}
+#leftArrow:hover, #leftArrow.active {
+  border-bottom: 3px solid var(--borderColorActive);
+  border-left: 3px solid var(--borderColorActive);
+} 
+/* Center div */
+#centerDivCont {
+  flex-grow: 4;
+  overflow:auto
+}
+.svgPic {
+  border-radius: 0.5rem;
+  background-color: var(--backgroundColorArrowCont);
+  color: var(--borderColor);
+  margin: 0.5rem;
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+.svgPic:hover, .svgPic.active {
+color: var(--borderColorActive);
+background-color: var(--backgroundcolorArrowBox);
+}
+/* rightArrow */
+#rightArrow {
+  margin: 0 auto;
+  width: 10px;
+  height: 10px;
+  border-bottom: 3px solid var(--borderColor);
+  border-left: 3px solid var(--borderColor);
+  transform: rotate(228deg);
+  transition: 0.3s linear;
+}
+#righArrow:hover, #rightArrow.active {
+  border-bottom: 3px solid var(--borderColorActive);
+  border-left: 3px solid var(--borderColorActive);
+} 
+/* slideBar style */
+#slideBarCont {
+  margin: 6vh 0;
+  width: 95vw;
+  height: 20vh;
+  box-shadow: var(--boxShadow);
+  border-radius: 6px;
+}
+@media screen and (max-width:600px) {
+  #slideBarCont {
+    height: 9vh;
+}
+}
+.slideBarImg {
+  width: calc(95vw / 7);
+  cursor: pointer;
+  border-right: 2px solid transparent;
+}
