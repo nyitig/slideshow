@@ -72,7 +72,7 @@ body {
 #leftArrowDivCont, #rightArrowDivCont {
   padding: 0 2vw;
   border-radius: 6px;
-   background-color: var(--backgroundColorArrowCont); 
+   /* background-color: var(--backgroundColorArrowCont);  */
  }
 #leftArrowDivBox, #rightArrowDivBox {
   width: 50px;
