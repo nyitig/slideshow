@@ -9,7 +9,10 @@
   --backgroundColor: rgb(0, 0, 0, 0.9);
   --borderColor: rgb(36, 36, 36);
   --borderColorActive: rgb(0, 0, 0);
-  --boxShadow: 0px 15px 50px rgb(0,0,0,0.9)
+  --boxShadow: 0px 15px 50px rgb(0,0,0,0.9);
+  --backgroundImgSec:rgb(0, 0, 0, 78%);
+  --arrowBorder: 2px solid var(--backgroundColor);
+
 }
 body {
   min-height: 100vh;
@@ -20,6 +23,9 @@ body {
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#D3D3D3", endColorstr="#FFFFFF", GradientType=1 );
 }
 /* Full page style */
+.displayNone {
+  display: none;
+}
 .displayFlexColumn {
   display: flex;
   flex-direction: column;
@@ -28,42 +34,99 @@ body {
   display: flex;
   flex-direction: row;
 }
+.flexWrap {
+  flex-wrap: wrap;
+}
 .justyCent {
   justify-content: center;
 }
-.justíFlexEnd {
+.justyFlexEnd {
   justify-content: flex-end;
+}
+.justyFlexStart {
+  justify-content: flex-start;
+}
+.justySpaceBetw {
+  justify-content: space-between;
 }
 .alignCent {
   align-items: center;
 }
+.visibilityNone {
+  visibility: hidden;
+}
+.hide {
+  height: 0px;
+}
 #fullPageDivCont {
   width: 100%;
-  min-height: 100vh;
+  min-height: 650px;
 }
+/* First Page Div Container style */
+#firstPageDivCont {
+  width: 100%;
+  height: 0px;
+  opacity: 0;
+  transition: 1s ease-in-out;
+}
+#firstPageDivCont.active {
+  opacity: 1;
+  height: 650px;
+}
+#fullscreenIconDivCont {
+  background-color: var(--backgroundColorArrowCont);
+  color: var(--borderColor);
+  margin: 0.5rem;
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+#fullscreenIconDivCont:hover {
+  background-color: var(--backgroundcolorArrowBox);
+}
+.fullscreenIconDiv {
+  height: 15px;
+  width: 15px;
+}
+.fullscreenIconCorner {
+  width: 5px;
+  height: 5px;
+}
+.fullscreenIconCorners1 {
+  border-top: var(--arrowBorder);
+  border-left: var(--arrowBorder);
+}
+.fullscreenIconCorners2 {
+border-top: var(--arrowBorder);
+border-right: var(--arrowBorder);
+}
+.fullscreenIconCorners3 {
+  border-left: var(--arrowBorder);
+  border-bottom: var(--arrowBorder);
+
+}
+.fullscreenIconCorners4 {
+border-bottom: var(--arrowBorder);
+border-right: var(--arrowBorder);
+}
+
 /* viewPicCont style */
 #centerImg {
-  height: 68vh;
+  margin: 0 auto;
+  height: 255px;
+  width: auto;
   opacity: 0;
-  transition: 0.5s linear;
+  transition: 0.3s linear;
 }
 #centerImg.active {
   opacity: 1;
 }
-.positionAbsol {
-  position: absolute;
-  right: 11rem;
-}
-@media screen and (min-width:992px) {
-  .positionAbsol {
-    position: absolute;
-    right: 15rem;
-  }
-}
 #viewPicDivCont {
+  padding: 12px 0;
   min-height: 65vh;
   max-height: 68vh;
-  width: 80vw;
+  width: 95vw;
   box-shadow: var(--boxShadow);
   background-color: var(--backgroundColor);
   margin-top: 2vh;
@@ -101,7 +164,20 @@ body {
 /* Center div */
 #centerDivCont {
   flex-grow: 4;
-  overflow:auto
+  object-fit: cover;
+  overflow:auto;
+  scrollbar-width: thin;
+  scrollbar-color: hsla(0, 0%, 83%, 1) rgb(0, 0, 0, 0.9);
+  border-radius: 6px;
+}
+#centerDivCont::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  border-radius: 30px;
+}
+#centerDivCont::-webkit-scrollbar-thumb {
+  background: hsla(0, 0%, 83%, 1);
+  border-radius: 30px;
 }
 .svgPic {
   border-radius: 0.5rem;
@@ -139,13 +215,86 @@ background-color: var(--backgroundcolorArrowBox);
   box-shadow: var(--boxShadow);
   border-radius: 6px;
 }
-@media screen and (max-width:600px) {
-  #slideBarCont {
-    height: 9vh;
-}
-}
+
 .slideBarImg {
   width: calc(95vw / 7);
   cursor: pointer;
-  border-right: 2px solid transparent;
+  object-fit: cover;
 }
+.borderImgRight {
+  margin-right: 2px;
+}
+.borderImg {
+  border: 5px solid var(--backgroundcolorArrowBox);
+}
+/* Fullscreen image Container style*/
+#fullscreenImgDivCont {
+  background-color: var(--borderColorActive);
+  min-height: 660px;
+  min-width: 100vw;
+}
+#fullscreenDivCont {
+  z-index: 10;
+  opacity: 0;
+  transition: 3s linear;
+}
+#fullscreenDivCont.active {
+  opacity: 1;
+}
+#closebuttonDivContainer {
+  background-color: var(--borderColorActive);
+  width: 100vw;
+}
+#closeButtonContainer {
+  padding-right: 3rem;
+  padding-top: 10px;
+  color:  var(--borderColorActive);
+  font-size: 3rem;
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+#closeButtonContainer:hover, #closeButtonContainer:active {
+  color: var(--borderColorActive);
+}
+#exitButton {
+  color:  var(--borderColor);
+  font-size: 3rem;
+}
+#fullscreenImg {
+  background-color: var(--borderColorActive);
+  object-fit: contain;
+  margin: 15px auto;
+  height: 42rem;
+  width: 95vw;
+  overflow: hidden;
+}
+@media screen and (max-width:600px) {
+  #slideBarCont {
+    height: 9vh;
+  }
+  #fullscreenImg {
+    height: 22rem;
+  }
+}
+@media screen and (min-width:992px) {
+
+}
+/* 
+Mobilon nagyon sok helyet elvesznek a képektől a nyilak, mások az arányok, 
+le van vágva a képből. Am. az alt szövegek semmire sem jók, 
+gondolom csak helykitöltők. 
+Jelenleg se seo, se akadálymentesség szempontjából nem megfelelők. 
+Valami kis szöveg hiányzik nekem, de értem, hogy most csak a galéria nézetre 
+fektetted a hangsúlyt. Bennem még kérdés asztalin, hogy mi történne, 
+ha 8-9 vagy több kép lenne benne. Kódra nem néztem rá, de érdemes azt is lekezelni. 
+Egy ideig működik, hogy összébb nyomódnak, de x kép után már erősen rontja az élményt. 
+Plusz a fekete hátteret is csökkenteném. A kicsinyítés opciónak sztem csak akkor van értelme,
+ ha a nagyításba benne vagyunk. Viszont egy teljes képernyőre kirakás sokszor jól jön.
+*/
+
+/* 
+Látom, a képeket lehet nagyítani is, akár a betöltő mérete fölé is, ilyenkor bejön a scrollbar. 
+Azon esetleg nem gondolkodtál, hogy ennek a scrollbarnak valami szép, 
+a kerethez illeszkedő designt adni? 
+Teljesen testre szabható, és szerintem ízléses lenne.
+*/
