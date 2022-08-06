@@ -162,7 +162,48 @@ closeButtonContainer.addEventListener("click", () => {
   
 
 })
+// play and stop slideshow
+const playSlideShowButton=document.getElementById('playSlideShowButton')
+const stopSlideShowButton=document.getElementById('stopSlideShowButton')
+let timer=null
+playSlideShowButton.addEventListener("click", () => {
+  timer=1
+  playSlideShow()
+})
+stopSlideShowButton.addEventListener("click", () => {timer=3})
+function playSlideShow(){
+  if (timer==3) {return}
+  else  {
+       let i=counter
+    if (counter==6) {
+      i=0
+      changePic(i)
+      }
+    else {
+      i++
+      changePic(i)
+    }
+    }
+    setTimeout(playSlideShow, 4500);
+  }
+
+
+
 /*
+    setTimeout(() => {
+      let i=counter
+      if (counter==6) {
+      console.log("if ág")
+      i=0
+      changePic(i)
+      } else {
+      console.log("else ág")
+      i++
+      changePic(i)
+      }
+      }, 5000);
+
+
 esetleg meg arra keress megoldast, hogy ha hovereled a kepeket alul,
  akkor ne kapjon epilepsziarohamot az end-user.
 1. kepenkent varj legalabb 250-500ms idotartamot, mielott lefuttatod a changePic metodusodat

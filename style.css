@@ -20,7 +20,7 @@ body {
   background: radial-gradient(circle, hsla(0, 0%, 83%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
   background: -moz-radial-gradient(circle, hsla(0, 0%, 83%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
   background: -webkit-radial-gradient(circle, hsla(0, 0%, 83%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#D3D3D3", endColorstr="#FFFFFF", GradientType=1 );
+  /* filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#D3D3D3", endColorstr="#FFFFFF", GradientType=1 ); */
 }
 /* Full page style */
 .displayNone {
@@ -74,43 +74,14 @@ body {
   height: 650px;
 }
 #fullscreenIconDivCont {
-  background-color: var(--backgroundColorArrowCont);
   color: var(--borderColor);
   margin: 0.5rem;
-  height: 2rem;
-  width: 2rem;
   cursor: pointer;
-  transition: 0.3s linear;
-}
-#fullscreenIconDivCont:hover {
-  background-color: var(--backgroundcolorArrowBox);
 }
 .fullscreenIconDiv {
   height: 15px;
   width: 15px;
 }
-.fullscreenIconCorner {
-  width: 5px;
-  height: 5px;
-}
-.fullscreenIconCorners1 {
-  border-top: var(--arrowBorder);
-  border-left: var(--arrowBorder);
-}
-.fullscreenIconCorners2 {
-border-top: var(--arrowBorder);
-border-right: var(--arrowBorder);
-}
-.fullscreenIconCorners3 {
-  border-left: var(--arrowBorder);
-  border-bottom: var(--arrowBorder);
-
-}
-.fullscreenIconCorners4 {
-border-bottom: var(--arrowBorder);
-border-right: var(--arrowBorder);
-}
-
 /* viewPicCont style */
 #centerImg {
   margin: 0 auto;
@@ -138,16 +109,8 @@ border-right: var(--arrowBorder);
    /* background-color: var(--backgroundColorArrowCont);  */
  }
 #leftArrowDivBox, #rightArrowDivBox {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: var(--backgroundColorArrowCont);
-  transition: 0.3s linear; 
   cursor: pointer;
  }
- #leftArrowDivBox:hover, #leftArrowDivBox.active, #rightArrowDivBox:hover, #rightArrowDivBox.active  {
-  background-color: var(--backgroundcolorArrowBox);
-}
 #leftArrow {
   margin: 0 auto;
   width: 10px;
@@ -195,18 +158,9 @@ background-color: var(--backgroundcolorArrowBox);
 }
 /* rightArrow */
 #rightArrow {
-  margin: 0 auto;
-  width: 10px;
-  height: 10px;
-  border-bottom: 3px solid var(--borderColor);
-  border-left: 3px solid var(--borderColor);
-  transform: rotate(228deg);
-  transition: 0.3s linear;
+  transform: rotate(180deg);
 }
-#righArrow:hover, #rightArrow.active {
-  border-bottom: 3px solid var(--borderColorActive);
-  border-left: 3px solid var(--borderColorActive);
-} 
+
 /* slideBar style */
 #slideBarCont {
   margin: 6vh 0;
@@ -234,6 +188,7 @@ background-color: var(--backgroundcolorArrowBox);
   min-width: 100vw;
 }
 #fullscreenDivCont {
+  width: 98%;
   z-index: 10;
   opacity: 0;
   transition: 3s linear;
@@ -246,7 +201,7 @@ background-color: var(--backgroundcolorArrowBox);
   width: 100vw;
 }
 #closeButtonContainer {
-  padding-right: 3rem;
+  padding-right: 1rem;
   padding-top: 10px;
   color:  var(--borderColorActive);
   font-size: 3rem;
@@ -276,25 +231,3 @@ background-color: var(--backgroundcolorArrowBox);
     height: 22rem;
   }
 }
-@media screen and (min-width:992px) {
-
-}
-/* 
-Mobilon nagyon sok helyet elvesznek a képektől a nyilak, mások az arányok, 
-le van vágva a képből. Am. az alt szövegek semmire sem jók, 
-gondolom csak helykitöltők. 
-Jelenleg se seo, se akadálymentesség szempontjából nem megfelelők. 
-Valami kis szöveg hiányzik nekem, de értem, hogy most csak a galéria nézetre 
-fektetted a hangsúlyt. Bennem még kérdés asztalin, hogy mi történne, 
-ha 8-9 vagy több kép lenne benne. Kódra nem néztem rá, de érdemes azt is lekezelni. 
-Egy ideig működik, hogy összébb nyomódnak, de x kép után már erősen rontja az élményt. 
-Plusz a fekete hátteret is csökkenteném. A kicsinyítés opciónak sztem csak akkor van értelme,
- ha a nagyításba benne vagyunk. Viszont egy teljes képernyőre kirakás sokszor jól jön.
-*/
-
-/* 
-Látom, a képeket lehet nagyítani is, akár a betöltő mérete fölé is, ilyenkor bejön a scrollbar. 
-Azon esetleg nem gondolkodtál, hogy ennek a scrollbarnak valami szép, 
-a kerethez illeszkedő designt adni? 
-Teljesen testre szabható, és szerintem ízléses lenne.
-*/
